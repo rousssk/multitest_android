@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
 
         // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
+   /*     if (TextUtils.isEmpty(email)) {
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
-        }
+        } */
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first
@@ -209,7 +209,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+        return email.length() > 1;
+
     }
 
     private boolean isPasswordValid(String password) {
