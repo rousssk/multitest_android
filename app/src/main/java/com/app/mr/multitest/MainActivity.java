@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-            conexion = DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.1.3;databaseName=NOMBRE_BD;user=USUARIO;password=123456;");
+            conexion = DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.1.3;databaseName=MultiTestDB;user=root;password=Mul.123.recargas;");
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
         }
@@ -161,6 +162,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     private void attemptLogin() {
+
+        //INTENT TO MENU
+        Intent intent = new Intent(this, MenuActivity.class);
+  //      intent.putExtra("news", (Serializable) n); //por si quieres pasarle el objeto a la nueva actividad, tendrás que hacerlo serializable
+        startActivity(intent);
+
+
         if (mAuthTask != null) {
             return;
         }
